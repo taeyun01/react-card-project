@@ -5,6 +5,8 @@ import {
   query,
   QuerySnapshot,
   startAfter,
+  doc,
+  getDoc,
 } from 'firebase/firestore'
 import { store } from './firebase'
 import { COLLECTIONS } from '../constants'
@@ -36,5 +38,15 @@ export const getCards = async (pageParam?: QuerySnapshot<Card>) => {
     return { items, lastVisible } // 받아온 데이터들과 마지막 커서를 반환
   } catch (error) {
     console.error(error)
+  }
+}
+
+export const getCard = async (id: string) => {
+  // 카드 하나를 가져오는 함수 (상세페이지)
+  // 우리 앱에 있는 카드 컬렉션안에 있는 id를 가진 문서를 찾아 기져옴
+  const snapshot = await getDoc(doc(store, COLLECTIONS.CARD, id))
+  return {
+    id,
+    ...(snapshot.data() as Card),
   }
 }

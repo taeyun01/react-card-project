@@ -2,7 +2,7 @@ import Top from '../components/shared/Top'
 import AdBanners from '../components/home/AdBanners'
 import CardList from '../components/home/CardList'
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <Top
@@ -15,4 +15,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomePage

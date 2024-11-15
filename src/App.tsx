@@ -1,8 +1,7 @@
-// /** @jsxImportSource @emotion/react */
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import Test from './pages/Test'
+import HomePage from './pages/Home'
+import TestPage from './pages/Test'
+import CardPage from './pages/Card'
 
 function App() {
   return (
@@ -13,8 +12,9 @@ function App() {
       }}
     >
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/test" element={<Test />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/card/:id" element={<CardPage />} />
+        <Route path="/test" element={<TestPage />} />
       </Routes>
     </BrowserRouter>
   )

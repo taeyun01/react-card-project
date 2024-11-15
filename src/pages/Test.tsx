@@ -1,7 +1,7 @@
 import AddBannerListAddButton from '../components/test/AddBannerListAddButton'
 import CardListAddButton from '../components/test/CardListAddButton'
 
-const Test = () => {
+const TestPage = () => {
   return (
     <div>
       <CardListAddButton />
@@ -10,4 +10,4 @@ const Test = () => {
   )
 }
 
-export default Test
+export default TestPage

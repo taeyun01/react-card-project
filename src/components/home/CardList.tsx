@@ -5,6 +5,7 @@ import { flatten } from 'lodash'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useCallback } from 'react'
 import Badge from '../shared/Badge'
+import { useNavigate } from 'react-router-dom'
 
 const CardList = () => {
   const {
@@ -21,6 +22,7 @@ const CardList = () => {
     },
     // getPreviousPageParam: () => undefined,
   })
+  const navigate = useNavigate()
 
   const loadMore = useCallback(() => {
     if (!hasNextPage || isFetching) return
@@ -50,6 +52,7 @@ const CardList = () => {
             })}
             right={card.payback && <Badge label={card.payback} />}
             withArrow
+            onClick={() => navigate(`/card/${card.id}`)}
           />
         ))}
       </ul>
