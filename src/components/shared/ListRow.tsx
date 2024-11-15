@@ -11,6 +11,7 @@ interface ListRowProps {
   onClick?: () => void
 }
 
+//* 컴포넌트 합성하기 : 방대한 양의 props를 사용하지 않아도 되고 재사용성에도 좋음 (props 드릴링 해결)
 const ListRow = ({
   left,
   contents,
@@ -19,6 +20,7 @@ const ListRow = ({
   onClick,
 }: ListRowProps) => {
   return (
+    //* ListRow는 UI를 넣을 구멍만 뚫어주고 사용처에서 각각 요소들을 조합해서 사용하는 방법
     <Flex as="li" css={listRowContainerStyles} onClick={onClick} align="center">
       <Flex css={listRowLeftStyles}>{left}</Flex>
       <Flex css={listRowContentsStyles}>{contents}</Flex>
@@ -40,6 +42,7 @@ const listRowContentsStyles = css`
   flex: 1;
 `
 
+//* 합성할 컴포넌트
 const ListRowTexts = ({
   title,
   subTitle,
@@ -69,6 +72,7 @@ const ArrowRightIcon = () => {
   )
 }
 
+//* 컴포넌트 합성
 // ListRow에 ListRowTexts를 사용하겠다. 라는 의미
 // 함수도 객체니까 이런식으로 key와 value를 이용해서 컴포넌트를 넣어줄 수 있음
 ListRow.ListRowTexts = ListRowTexts
