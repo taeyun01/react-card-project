@@ -15,3 +15,16 @@ export interface AdBanner {
   description: string
   link: string
 }
+
+export interface CardList {
+  benefit: string[]
+  corpName: string
+  id: string
+  name: string
+  tags: string[]
+}
+
+export interface CardItems {
+  items: CardList[]
+  lastVisible?: string
+}
