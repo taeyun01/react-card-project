@@ -4,6 +4,7 @@ import ListRow from '../shared/ListRow'
 import { flatten } from 'lodash'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useCallback } from 'react'
+import Badge from '../shared/Badge'
 
 const CardList = () => {
   const {
@@ -37,18 +38,21 @@ const CardList = () => {
       hasMore={hasNextPage}
       next={loadMore}
       loader={<div>Loading...</div>} // TODO: 로딩 컴포넌트 추가하기
+      scrollThreshold={0.9} // 스크롤 임계점 설정
     >
-      {cards.map((card, index) => (
-        <ListRow
-          key={card.id}
-          contents={ListRow.ListRowTexts({
-            title: `${index + 1}위`,
-            subTitle: card.name,
-          })}
-          right={card.payback && <div>{card.payback}</div>}
-          withArrow
-        />
-      ))}
+      <ul>
+        {cards.map((card, index) => (
+          <ListRow
+            key={card.id}
+            contents={ListRow.ListRowTexts({
+              title: `${index + 1}위`,
+              subTitle: card.name,
+            })}
+            right={card.payback && <Badge label={card.payback} />}
+            withArrow
+          />
+        ))}
+      </ul>
     </InfiniteScroll>
   )
 }
