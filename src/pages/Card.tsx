@@ -8,6 +8,7 @@ import FixedBottomButton from '../components/shared/FixedBottomButton'
 import Flex from '../components/shared/Flex'
 import Text from '../components/shared/Text'
 import { css } from '@emotion/react'
+import { motion } from 'motion/react'
 
 const CardPage = () => {
   const { id = '' } = useParams()
@@ -30,16 +31,38 @@ const CardPage = () => {
 
       <ul>
         {benefit.map((text, index) => (
-          <ListRow
+          <motion.li
             key={text}
-            left={<CheckIcon />}
-            contents={
-              <ListRow.ListRowTexts
-                title={`혜택 ${index + 1}`}
-                subTitle={text}
-              />
-            }
-          />
+            initial={{
+              opacity: 0,
+              translateX: -90,
+            }}
+            animate={{
+              opacity: 1,
+              translateX: 0,
+            }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.1,
+              ease: 'easeInOut',
+            }}
+            // 화면에 노출될때마다 애니메이션 실행
+            // whileInView={{
+            //   opacity: 1,
+            //   translateX: 0,
+            // }}
+          >
+            <ListRow
+              as="div"
+              left={<CheckIcon />}
+              contents={
+                <ListRow.ListRowTexts
+                  title={`혜택 ${index + 1}`}
+                  subTitle={text}
+                />
+              }
+            />
+          </motion.li>
         ))}
       </ul>
 

@@ -9,10 +9,12 @@ interface ListRowProps {
   right?: React.ReactNode
   withArrow?: boolean // 화살표 표시 여부 (true면 화살표 표시)
   onClick?: () => void
+  as?: 'div' | 'li'
 }
 
 //* 컴포넌트 합성하기 : 방대한 양의 props를 사용하지 않아도 되고 재사용성에도 좋음 (props 드릴링 해결)
 const ListRow = ({
+  as = 'li',
   left,
   contents,
   right,
@@ -21,7 +23,7 @@ const ListRow = ({
 }: ListRowProps) => {
   return (
     //* ListRow는 UI를 넣을 구멍만 뚫어주고 사용처에서 각각 요소들을 조합해서 사용하는 방법
-    <Flex as="li" css={listRowContainerStyles} onClick={onClick} align="center">
+    <Flex as={as} css={listRowContainerStyles} onClick={onClick} align="center">
       <Flex css={listRowLeftStyles}>{left}</Flex>
       <Flex css={listRowContentsStyles}>{contents}</Flex>
       <Flex>{right}</Flex>
