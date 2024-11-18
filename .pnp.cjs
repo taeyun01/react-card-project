@@ -39,6 +39,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:22.9.0"],\
           ["@types/react", "npm:18.3.12"],\
           ["@types/react-dom", "npm:18.3.1"],\
+          ["@types/validator", "npm:13.12.2"],\
           ["@vitejs/plugin-react", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:4.3.3"],\
           ["eslint", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:9.14.0"],\
           ["eslint-config-prettier", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:9.1.0"],\
@@ -61,6 +62,7 @@ const RAW_RUNTIME_STATE =
           ["swiper", "npm:11.1.14"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"],\
           ["typescript-eslint", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:8.13.0"],\
+          ["validator", "npm:13.12.0"],\
           ["vite", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:5.4.10"]\
         ],\
         "linkType": "SOFT"\
@@ -5040,6 +5042,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/validator", [\
+      ["npm:13.12.2", {\
+        "packageLocation": "../../../../.yarn/berry/cache/@types-validator-npm-13.12.2-c7c4fd2a77-10c0.zip/node_modules/@types/validator/",\
+        "packageDependencies": [\
+          ["@types/validator", "npm:13.12.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@typescript-eslint/eslint-plugin", [\
       ["npm:5.62.0", {\
         "packageLocation": "../../../../.yarn/berry/cache/@typescript-eslint-eslint-plugin-npm-5.62.0-c48b9a5492-10c0.zip/node_modules/@typescript-eslint/eslint-plugin/",\
@@ -6012,6 +6023,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:22.9.0"],\
           ["@types/react", "npm:18.3.12"],\
           ["@types/react-dom", "npm:18.3.1"],\
+          ["@types/validator", "npm:13.12.2"],\
           ["@vitejs/plugin-react", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:4.3.3"],\
           ["eslint", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:9.14.0"],\
           ["eslint-config-prettier", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:9.1.0"],\
@@ -6034,6 +6046,7 @@ const RAW_RUNTIME_STATE =
           ["swiper", "npm:11.1.14"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"],\
           ["typescript-eslint", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:8.13.0"],\
+          ["validator", "npm:13.12.0"],\
           ["vite", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:5.4.10"]\
         ],\
         "linkType": "SOFT"\
@@ -10113,6 +10126,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["util", "npm:0.10.4"],\
           ["inherits", "npm:2.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["validator", [\
+      ["npm:13.12.0", {\
+        "packageLocation": "../../../../.yarn/berry/cache/validator-npm-13.12.0-6c8a423cbf-10c0.zip/node_modules/validator/",\
+        "packageDependencies": [\
+          ["validator", "npm:13.12.0"]\
         ],\
         "linkType": "HARD"\
       }]\
