@@ -10,17 +10,28 @@ import { colors } from '../../styles/colorPalette'
 interface FixedBottomButtonProps {
   label: string
   onClick: () => void
+  disabled?: boolean
 }
 
 // portal에 버튼 띄우기
-const FixedBottomButton = ({ label, onClick }: FixedBottomButtonProps) => {
+const FixedBottomButton = ({
+  label,
+  onClick,
+  disabled,
+}: FixedBottomButtonProps) => {
   const $portalRoot = document.getElementById('root-portal')
 
   if (!$portalRoot) return null
 
   return createPortal(
     <Container>
-      <Button size="medium" full onClick={onClick} css={buttonStyles}>
+      <Button
+        size="medium"
+        disabled={disabled}
+        full
+        onClick={onClick}
+        css={buttonStyles}
+      >
         {label}
       </Button>
     </Container>,
