@@ -6,6 +6,8 @@ import ScrollToTop from './components/shared/ScrollToTop'
 import SigninPage from './pages/Signin'
 import SignupPage from './pages/Signup'
 import Navbar from './components/shared/Navbar'
+import PrivateRoute from './components/auth/PrivateRoute'
+import ApplyPage from './pages/Apply'
 
 function App() {
   return (
@@ -22,6 +24,14 @@ function App() {
         <Route path="/card/:id" element={<CardPage />} />
         <Route path="/signin" element={<SigninPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route
+          path="/apply/:id"
+          element={
+            <PrivateRoute>
+              <ApplyPage />
+            </PrivateRoute>
+          }
+        />
         <Route path="/test" element={<TestPage />} />
       </Routes>
     </BrowserRouter>

@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { useQuery } from '@tanstack/react-query'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { getCard } from '../remote/card'
 import Top from '../components/shared/Top'
 import ListRow from '../components/shared/ListRow'
@@ -9,15 +9,37 @@ import Flex from '../components/shared/Flex'
 import Text from '../components/shared/Text'
 import { css } from '@emotion/react'
 import { motion } from 'motion/react'
+import { useCallback } from 'react'
+import useUser from '../hooks/auth/useUser'
+import useAlert from '../hooks/alert/useAlert'
 
+// 카드 상세 페이지
 const CardPage = () => {
   const { id = '' } = useParams()
+  const user = useUser()
+  const showAlert = useAlert()
+  const navigate = useNavigate()
 
   const { data } = useQuery({
     queryKey: ['card', id],
     queryFn: () => getCard(id),
     enabled: id !== '', // id가 없으면 쿼리 실행 안함 (enabled속성을 통해 데이터를 호출할지 안할지 조절할 수 있음)
   })
+
+  // TODO: 카드 신청하기는 로그인 상태서만 가능, 미로그인시 로그인페이지로 이동하는데. 로그인 한 다음 home페이지가 아닌 신청페이지로 이동하는 방법
+  const moveToApply = useCallback(() => {
+    if (!user) {
+      showAlert({
+        title: '로그인이 필요한 기능입니다.',
+        onButtonClick: () => {
+          navigate('/signin') // 확인 버튼을 눌렀을 때 이동
+        },
+      })
+      return
+    }
+
+    navigate(`/apply/${id}`)
+  }, [user, navigate, id, showAlert])
 
   if (!data) return null
 
@@ -72,7 +94,7 @@ const CardPage = () => {
           <Text typography="t7">{removeHtmlTags(promotion.terms)}</Text>
         </Flex>
       ) : null}
-      <FixedBottomButton label="신청하기" onClick={() => {}} />
+      <FixedBottomButton label="신청하기" onClick={moveToApply} />
     </div>
   )
 }
