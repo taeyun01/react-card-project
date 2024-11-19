@@ -5,8 +5,11 @@ import { auth, store } from '../remote/firebase'
 import { FirebaseError } from 'firebase/app'
 import { collection, doc, setDoc } from 'firebase/firestore'
 import { COLLECTIONS } from '../constants'
+import { useNavigate } from 'react-router-dom'
 
 const SignupPage = () => {
+  const navigate = useNavigate()
+
   // 회원가입 처리하는 곳은 폼에서 바뀌는 정보는 궁금하지 않음. 회원가입은 그냥 완성된 데이터가 필요함 (form 입력 데이터) 그래서 따로 Form컴포넌트가 아닌 회원가입 페이지에서 따로 처리
   const handleSubmit = async (formValues: FormValues) => {
     const { email, password, name } = formValues
@@ -31,7 +34,7 @@ const SignupPage = () => {
 
       alert('회원가입이 완료되었습니다.')
 
-      // TODO: 로그인 처리
+      navigate('/')
     } catch (error) {
       if (error instanceof FirebaseError) {
         if (error.code === 'auth/email-already-in-use') {

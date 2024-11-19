@@ -111,7 +111,7 @@ const formContainerStyles = css`
 
 const validate = (formValues: FormValues) => {
   // errors = {email: '이메일 형식을 확인해주세요', password: '패스워드 형식을 확인해주세요', rePassword: '패스워드 확인 형식을 확인해주세요', name: '이름을 확인해주세요'}
-  let errors: Partial<FormValues> = {}
+  const errors: Partial<FormValues> = {}
 
   if (!validator.isEmail(formValues.email)) {
     errors.email = '이메일 형식을 확인해주세요'
