@@ -2,8 +2,13 @@ import Agreement from '../shared/Agreement'
 import { TERMS_LIST } from '../../constants/apply'
 import { useCallback, useState } from 'react'
 import FixedBottomButton from '../shared/FixedBottomButton'
+import { ApplyValues } from '../../models/apply'
 
-const Terms = ({ onNext }: { onNext: (terms: string[]) => void }) => {
+const Terms = ({
+  onNext,
+}: {
+  onNext: (terms: ApplyValues['terms']) => void
+}) => {
   const [termsAgreement, setTermsAgreement] = useState(() => {
     return TERMS_LIST.reduce<Record<string, boolean>>(
       (prev, terms) => ({
