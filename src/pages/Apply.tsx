@@ -1,33 +1,24 @@
 import { useState } from 'react'
-import BasicInfo from '../components/apply/BasicInfo'
-import CardInfo from '../components/apply/CardInfo'
-import Terms from '../components/apply/Terms'
-import { ApplyValues } from '../models/apply'
+import Apply from '../components/apply'
 
-// 카드 신청 하기전 유저정보를 얻기 위한 페이지
-// 각각의 페이지로 분리할 수도 있지만, 스텝으로 분리하면 코드도 한곳에 보이고 데이터 흐름을 쉽게 파악할 수 있음
 const ApplyPage = () => {
-  const [step, setStep] = useState(1)
+  const [step, setStep] = useState(2)
 
-  // Pick으로 뽑으면 객체로 나옴. terms는 string에 array니까 ApplyValues['terms'] 이런식으로 뽑아줌
-  const handleTermsChange = (terms: ApplyValues['terms']) => {
-    console.log('terms', terms)
+  const handleSubmit = () => {
+    // TODO: 카드신청
   }
 
-  const handleBasicInfoChange = (
-    infoValues: Pick<ApplyValues, 'salary' | 'creditScore' | 'payDate'>,
-  ) => {
-    console.log('infoValues', infoValues)
-  }
-
-  return (
-    <div>
-      {step === 0 && <Terms onNext={handleTermsChange} />} {/* 약관동의 */}
-      {step === 1 && <BasicInfo onNext={handleBasicInfoChange} />}{' '}
-      {/* 기본 정보 */}
-      {step === 2 && <CardInfo />} {/* 카드 정보 */}
-    </div>
-  )
+  return <Apply step={step} onSubmit={handleSubmit} />
 }
 
 export default ApplyPage
+
+//* 카드신청을 하기위해 데이터를 모으는 곳은 여기 ApplyPage였다.
+//* 카드신청하는 페이지 입장에서는 이 데이터들이 변하는게 별로 궁금하지 않다.
+//* 이 페이지는 다 긁어 모아진 완성본만 넘겨주고 그 완성본을 가지고 카드신청을 하도록 만들어 주면 된다.
+//* 카드신청 하는 곳을 apply/index.tsx로 분리하여
+//* 여기서 ApplyPage에서는 데이터 완성본만 받도록 해준다.
+//* 그리고 step만 Apply로 넘겨준다.
+
+//? step이 변하는 것에 따라 무엇을 그릴지는 Apply에서 하고
+//? 실제 step이 변경되고 그런 것들은 ApplyPage에서 하도록 만들어 준다.

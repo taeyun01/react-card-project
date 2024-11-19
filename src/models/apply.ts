@@ -14,6 +14,9 @@ export interface ApplyValues {
   salary: string // 연소득
   creditScore: string // 신용점수
   payDate: string // 결제일
+  isMaster: boolean // 마스터카드 쓸건지 여부
+  isHipass: boolean // 하이패스 쓸건지 여부
+  isRf: boolean // 후불교통기능 쓸건지 여부
 }
 
 export interface Option {
