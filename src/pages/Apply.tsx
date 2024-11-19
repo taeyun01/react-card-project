@@ -8,9 +8,13 @@ import Terms from '../components/apply/Terms'
 const ApplyPage = () => {
   const [step, setStep] = useState(0)
 
+  const handleTermsChange = (terms: string[]) => {
+    console.log('terms', terms)
+  }
+
   return (
     <div>
-      {step === 0 && <Terms />} {/* 약관동의 */}
+      {step === 0 && <Terms onNext={handleTermsChange} />} {/* 약관동의 */}
       {step === 1 && <BasicInfo />} {/* 기본 정보 */}
       {step === 2 && <CardInfo />} {/* 카드 정보 */}
     </div>
