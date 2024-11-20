@@ -1,8 +1,18 @@
 import Top from '../components/shared/Top'
 import AdBanners from '../components/home/AdBanners'
 import CardList from '../components/home/CardList'
+import { useEffect } from 'react'
 
 const HomePage = () => {
+  const applied = Object.keys(localStorage).find((key) =>
+    key.startsWith('applied'),
+  )
+
+  useEffect(() => {
+    if (applied) {
+      localStorage.removeItem(applied)
+    }
+  }, [applied])
   return (
     <>
       <Top

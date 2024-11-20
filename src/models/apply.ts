@@ -25,6 +25,7 @@ export interface ApplyValues {
   isHipass: boolean // 하이패스 쓸건지 여부
   isRf: boolean // 후불교통기능 쓸건지 여부
   status: keyof typeof APPLY_STATUS
+  step: number
 }
 
 export interface Option {

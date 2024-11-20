@@ -40,3 +40,29 @@ export const updateApplyCard = async ({
   // 찾은 카드 문서의 참조(ref)를 사용하여 applyValues로 문서 내용을 업데이트
   updateDoc(appliedCard.ref, applyValues) // 카드의 인자와 업데이트 해줄값을 업데이트
 }
+
+// 유저가 가지고있는 카드를 반환하는 함수.
+export const getAppliedCard = async ({
+  userId,
+  cardId,
+}: {
+  userId: string
+  cardId: string
+}) => {
+  const snapshot = await getDocs(
+    query(
+      collection(store, COLLECTIONS.CARD_APPLY),
+      where('userId', '==', userId), // 'userId'가 넘겨 받은 userId랑 같은지
+      where('cardId', '==', cardId), // 'cardId'가 넘겨 받은 cardId랑 같은지
+    ),
+  )
+
+  // 찾는 카드가 없으면 null 반환 (유저는 카드를 신청하지 않은 것)
+  if (snapshot.empty) {
+    return null
+  }
+
+  // 찾는 카드가 있으면 찾은 카드 반환
+  const [appliedCard] = snapshot.docs
+  return appliedCard.data() as ApplyValues
+}

@@ -44,7 +44,7 @@ const usePollApplyStatus = ({
   return data
 }
 
-let currentIndex = 0
+// const currentIndex = 0
 
 // 카드사를 대신 해주는 모킹함수 (랜덤하게 상태값을 뱉어주는 함수)
 const getApplyStatus = async () => {
@@ -56,11 +56,11 @@ const getApplyStatus = async () => {
   ]
 
   // 랜덤하게 상태값을 뱉어줌
-  // const status = values[Math.floor(Math.random() * values.length)]
+  const status = values[Math.floor(Math.random() * values.length)]
 
   // 순차적으로 순회
-  const status = values[currentIndex]
-  currentIndex = (currentIndex + 1) % values.length
+  // const status = values[currentIndex]
+  // currentIndex = (currentIndex + 1) % values.length
 
   // 실패 케이스
   if (status === APPLY_STATUS.REJECT) {
