@@ -38,7 +38,7 @@ const CardPage = () => {
       return
     }
 
-    navigate(`/apply/${id}`)
+    navigate(`/apply/${id}`, { replace: true })
   }, [user, navigate, id, showAlert])
 
   if (!data) return null

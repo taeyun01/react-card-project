@@ -6,6 +6,13 @@ export interface Term {
   link?: string
 }
 
+export const APPLY_STATUS = {
+  READY: 'READY',
+  PROGRESS: 'PROGRESS',
+  COMPLETE: 'COMPLETE',
+  REJECT: 'REJECT',
+} as const
+
 export interface ApplyValues {
   userId: User['uid'] // 유저 id
   terms: Array<Term['id']> // 동의한 약관 id
@@ -17,6 +24,7 @@ export interface ApplyValues {
   isMaster: boolean // 마스터카드 쓸건지 여부
   isHipass: boolean // 하이패스 쓸건지 여부
   isRf: boolean // 후불교통기능 쓸건지 여부
+  status: keyof typeof APPLY_STATUS
 }
 
 export interface Option {

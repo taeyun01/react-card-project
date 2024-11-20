@@ -18,7 +18,7 @@ const Terms = ({
       {},
     )
   })
-  console.log('termsAgreement', termsAgreement)
+  // console.log('termsAgreement', termsAgreement)
 
   const handleAllAgreement = useCallback(
     (_: React.MouseEvent<HTMLElement>, checked: boolean) => {

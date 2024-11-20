@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react'
 import Select from '../shared/Select'
 import {
   ANNUAL_INCOME_OPTIONS,
@@ -7,6 +9,7 @@ import {
 import { useCallback, useState } from 'react'
 import { ApplyValues } from '../../models/apply'
 import FixedBottomButton from '../shared/FixedBottomButton'
+import Flex from '../shared/Flex'
 
 type InfoValues = Pick<ApplyValues, 'salary' | 'creditScore' | 'payDate'>
 
@@ -37,7 +40,7 @@ const BasicInfo = ({
   // console.log(infoValues)
 
   return (
-    <>
+    <Flex direction="column" gap={12} css={BasicInfoContainerStyle}>
       <Select
         name="salary"
         label="연소득"
@@ -68,8 +71,16 @@ const BasicInfo = ({
         onClick={() => onNext(infoValues)}
         disabled={!isAllInfoSelected}
       />
-    </>
+    </Flex>
   )
 }
+
+const BasicInfoContainerStyle = css`
+  padding: 24px;
+
+  & > div {
+    font-weight: 600;
+  }
+`
 
 export default BasicInfo

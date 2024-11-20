@@ -37,6 +37,7 @@ const RAW_RUNTIME_STATE =
           ["@types/babel__core", "npm:7.20.5"],\
           ["@types/lodash", "npm:4.17.13"],\
           ["@types/node", "npm:22.9.0"],\
+          ["@types/qs", "npm:6.9.17"],\
           ["@types/react", "npm:18.3.12"],\
           ["@types/react-dom", "npm:18.3.1"],\
           ["@types/validator", "npm:13.12.2"],\
@@ -55,6 +56,7 @@ const RAW_RUNTIME_STATE =
           ["motion", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:11.11.17"],\
           ["path", "npm:0.12.7"],\
           ["prettier", "npm:3.3.3"],\
+          ["qs", "npm:6.13.1"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:18.3.1"],\
           ["react-infinite-scroll-component", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:6.1.0"],\
@@ -4965,6 +4967,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/qs", [\
+      ["npm:6.9.17", {\
+        "packageLocation": "../../../../.yarn/berry/cache/@types-qs-npm-6.9.17-f0eceee63c-10c0.zip/node_modules/@types/qs/",\
+        "packageDependencies": [\
+          ["@types/qs", "npm:6.9.17"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/react", [\
       ["npm:18.3.12", {\
         "packageLocation": "../../../../.yarn/berry/cache/@types-react-npm-18.3.12-69c5fbaab9-10c0.zip/node_modules/@types/react/",\
@@ -5983,6 +5994,7 @@ const RAW_RUNTIME_STATE =
           ["@types/babel__core", "npm:7.20.5"],\
           ["@types/lodash", "npm:4.17.13"],\
           ["@types/node", "npm:22.9.0"],\
+          ["@types/qs", "npm:6.9.17"],\
           ["@types/react", "npm:18.3.12"],\
           ["@types/react-dom", "npm:18.3.1"],\
           ["@types/validator", "npm:13.12.2"],\
@@ -6001,6 +6013,7 @@ const RAW_RUNTIME_STATE =
           ["motion", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:11.11.17"],\
           ["path", "npm:0.12.7"],\
           ["prettier", "npm:3.3.3"],\
+          ["qs", "npm:6.13.1"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:18.3.1"],\
           ["react-infinite-scroll-component", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:6.1.0"],\
@@ -9046,6 +9059,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../.yarn/berry/cache/punycode-npm-2.3.1-97543c420d-10c0.zip/node_modules/punycode/",\
         "packageDependencies": [\
           ["punycode", "npm:2.3.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["qs", [\
+      ["npm:6.13.1", {\
+        "packageLocation": "../../../../.yarn/berry/cache/qs-npm-6.13.1-84fb125e32-10c0.zip/node_modules/qs/",\
+        "packageDependencies": [\
+          ["qs", "npm:6.13.1"],\
+          ["side-channel", "npm:1.0.6"]\
         ],\
         "linkType": "HARD"\
       }]\

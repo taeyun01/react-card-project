@@ -14,10 +14,11 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 const BaseSelect = styled.select`
   height: 52px;
   background-color: ${colors.grey};
-  border-radius: 16px;
+  border-radius: 10px;
   border: none;
   padding: 0 16px;
   cursor: pointer;
+  appearance: none; // select 기본 스타일 화살표 제거
 
   // 필수 값을 만족하지 않으면 폰트 색상 변경
   &:required:invalid {
