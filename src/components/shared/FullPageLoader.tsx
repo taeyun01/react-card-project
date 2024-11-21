@@ -2,10 +2,25 @@ import Flex from './Flex'
 import Spacing from './Spacing'
 import Text from './Text'
 
-const FullPageLoader = ({ message }: { message?: string }) => {
+const FullPageLoader = ({
+  message,
+  backgroundColor,
+  color,
+}: {
+  message?: string
+  backgroundColor?: string
+  color?: string
+}) => {
   return (
     <Flex
-      style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: backgroundColor || 'default',
+      }}
       justify="center"
       align="center"
     >
@@ -18,7 +33,7 @@ const FullPageLoader = ({ message }: { message?: string }) => {
         {message && (
           <>
             <Spacing size={60} />
-            <Text bold typography="t4">
+            <Text bold typography="t4" style={{ color: color || 'black' }}>
               {message}
             </Text>
           </>

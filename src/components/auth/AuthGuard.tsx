@@ -16,6 +16,7 @@ const AuthGuard = ({ children }: { children: React.ReactNode }) => {
         uid: user.uid,
         email: user.email ?? '',
         displayName: user.displayName ?? '',
+        photoURL: user.photoURL ?? '',
       })
     } else {
       // 로그인이 안된 경우나 로그아웃을 했을 때, 상태를 null로 초기화
