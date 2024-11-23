@@ -3,17 +3,21 @@ import {
   getDocs,
   limit,
   query,
-  QuerySnapshot,
+  // QuerySnapshot,
   startAfter,
   doc,
   getDoc,
+  DocumentData,
+  QueryDocumentSnapshot,
 } from 'firebase/firestore'
 import { store } from './firebase'
 import { COLLECTIONS } from '../constants'
 import { Card } from '../models/card'
 
 // pageParam 지금 보이고 있는 맨 마지막 요소
-export const getCards = async (pageParam?: QuerySnapshot<Card>) => {
+export const getCards = async (
+  pageParam?: QueryDocumentSnapshot<DocumentData>,
+) => {
   // CARD라는 컬렉션에 접근해서 모든 데이터를 가져옴 (getDocs도 비동기)
   try {
     const cardQuery = !pageParam // 커서 여부에 따라서 쿼리를 분류 했는데,

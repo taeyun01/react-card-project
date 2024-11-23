@@ -1,11 +1,29 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { getCards } from '../../remote/card'
 import ListRow from '../shared/ListRow'
-import { flatten } from 'lodash'
+import flatten from 'lodash.flatten'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useCallback } from 'react'
 import Badge from '../shared/Badge'
 import { useNavigate } from 'react-router-dom'
+import { DocumentData, QueryDocumentSnapshot } from 'firebase/firestore'
+
+interface Card {
+  id: string
+  name: string
+  corpName: string
+  tags: string[]
+  benefit: string[]
+  promotion?: {
+    title: string
+    terms: string
+  }
+  payback?: string
+}
+
+const initialQueryDocumentSnapshot:
+  | QueryDocumentSnapshot<DocumentData>
+  | undefined = undefined
 
 const CardList = () => {
   const {
@@ -15,32 +33,35 @@ const CardList = () => {
     isFetching,
   } = useInfiniteQuery({
     queryKey: ['cards'],
-    queryFn: ({ pageParam }) => getCards(pageParam),
-    initialPageParam: undefined,
-    getNextPageParam: (lastPage) => {
-      return lastPage?.lastVisible
-    },
-    // getPreviousPageParam: () => undefined,
+    queryFn: ({
+      pageParam,
+    }: {
+      pageParam?: QueryDocumentSnapshot<DocumentData> | undefined
+    }) => getCards(pageParam),
+    initialPageParam: initialQueryDocumentSnapshot,
+    getNextPageParam: (lastPage) => lastPage?.lastVisible,
   })
+
   const navigate = useNavigate()
 
   const loadMore = useCallback(() => {
     if (!hasNextPage || isFetching) return
-
     fetchNextPage()
   }, [hasNextPage, isFetching, fetchNextPage])
 
   if (!data) return null
 
-  const cards = flatten(data.pages.map(({ items }) => items))
+  const cards = flatten(
+    data.pages.map((page) => (page as { items: Card[] }).items),
+  )
 
   return (
     <InfiniteScroll
       dataLength={cards.length}
       hasMore={hasNextPage}
       next={loadMore}
-      loader={<div>Loading...</div>} // TODO: 로딩 컴포넌트 추가하기
-      scrollThreshold={0.9} // 스크롤 임계점 설정
+      loader={<div>Loading...</div>}
+      scrollThreshold={0.9}
     >
       <ul>
         {cards.map((card, index) => (
