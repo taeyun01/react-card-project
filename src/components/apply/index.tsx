@@ -5,6 +5,7 @@ import { APPLY_STATUS, ApplyValues } from '../../models/apply'
 import { useEffect, useState } from 'react'
 import useUser from '../../hooks/auth/useUser'
 import { useParams } from 'react-router-dom'
+import ProgressBar from '../shared/ProgressBar'
 
 // 카드 신청 하기전 유저정보를 얻기 위한 페이지
 // 각각의 페이지로 분리할 수도 있지만, 스텝으로 분리하면 코드도 한곳에 보이고 데이터 흐름을 쉽게 파악할 수 있음
@@ -19,6 +20,8 @@ const Apply = ({
   const { id } = useParams() as { id: string }
 
   const storageKey = `applied-${user?.uid}-${id}`
+
+  const LAST_STEP = 3
 
   // const [step, setStep] = useState(0)
 
@@ -90,6 +93,7 @@ const Apply = ({
 
   return (
     <div>
+      <ProgressBar progress={(applyValues.step as number) / LAST_STEP} />
       {applyValues.step === 0 && <Terms onNext={handleTermsChange} />}{' '}
       {/* 약관동의 */}
       {applyValues.step === 1 && (

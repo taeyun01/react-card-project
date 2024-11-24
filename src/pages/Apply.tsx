@@ -10,6 +10,12 @@ import useAppliedCard from '../components/apply/hooks/useAppliedCard'
 import useAlert from '../hooks/alert/useAlert'
 import FullPageLoader from '../components/shared/FullPageLoader'
 
+const STATUS_MESSAGE = {
+  [APPLY_STATUS.READY]: '카드 심사를 준비하고 있어요!',
+  [APPLY_STATUS.PROGRESS]: '카드를 심사 중이에요. 잠시만 기다려주세요!',
+  [APPLY_STATUS.COMPLETE]: '카드 신청이 완료되었어요!',
+}
+
 const ApplyPage = () => {
   const showAlert = useAlert()
   const navigate = useNavigate()
@@ -51,7 +57,7 @@ const ApplyPage = () => {
 
   const status = usePollApplyStatus({
     onSuccess: async () => {
-      // console.log('카드추가 성공')
+      console.log('카드추가 성공')
       await updateApplyCard({
         userId: user?.uid as string,
         cardId: id as string,
@@ -90,23 +96,16 @@ const ApplyPage = () => {
     },
   })
 
+  console.log('status', status)
+
   useEffect(() => {
     if (navigateTo) {
       return navigate(navigateTo, { replace: true })
     }
   }, [navigateTo, navigate])
 
-  // TODO: 로딩 컴포넌트 만들기
   if (readyToPoll || isPending) {
-    return (
-      <FullPageLoader
-        message={
-          status === APPLY_STATUS.READY
-            ? '카드를 준비하고 있어요!'
-            : '카드를 신청중이에요!'
-        }
-      />
-    )
+    return <FullPageLoader message={STATUS_MESSAGE[status ?? 'READY']} />
   }
 
   // data가 있고, 신청 상태가 완료 상태면 페이지에 아무것도 렌더링 하지 않음
