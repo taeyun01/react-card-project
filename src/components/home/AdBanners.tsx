@@ -13,12 +13,21 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
 const AdBanners = () => {
-  const { data } = useQuery({
+  const { data, isPending } = useQuery({
     queryKey: ['adBanners'],
     queryFn: () => getBanners(),
   })
 
-  // console.log(data)
+  if (!data || isPending) {
+    return (
+      <Container>
+        <Flex direction="column" css={bannerContainerStyles}>
+          <Text bold={true}>&nbsp;</Text>
+          <Text typography="t7">&nbsp;</Text>
+        </Flex>
+      </Container>
+    )
+  }
   return (
     <Container>
       <Swiper spaceBetween={8}>

@@ -403,6 +403,6 @@ export const adBanners = [
   {
     title: 'KB국민 My WE:SH 카드',
     description: '신규회원 연회비 지원해드려요',
-    link: '/card/1A1vyiHfHyZagksPfvsS',
+    link: '/card/44q6DAvVlbzC7bedHiro',
   },
 ]

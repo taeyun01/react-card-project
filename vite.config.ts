@@ -5,8 +5,6 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
-console.log('isProduction', isProduction)
-
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
