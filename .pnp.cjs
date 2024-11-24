@@ -63,6 +63,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:18.3.1"],\
           ["react-infinite-scroll-component", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:6.1.0"],\
+          ["react-intersection-observer", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:9.13.1"],\
           ["react-router-dom", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:6.28.0"],\
           ["recoil", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:0.7.7"],\
           ["rollup-plugin-visualizer", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:5.12.0"],\
@@ -6337,6 +6338,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:18.3.1"],\
           ["react-infinite-scroll-component", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:6.1.0"],\
+          ["react-intersection-observer", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:9.13.1"],\
           ["react-router-dom", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:6.28.0"],\
           ["recoil", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:0.7.7"],\
           ["rollup-plugin-visualizer", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:5.12.0"],\
@@ -9692,6 +9694,32 @@ const RAW_RUNTIME_STATE =
         ],\
         "packagePeers": [\
           "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-intersection-observer", [\
+      ["npm:9.13.1", {\
+        "packageLocation": "../../../../.yarn/berry/cache/react-intersection-observer-npm-9.13.1-e97f4d95f9-10c0.zip/node_modules/react-intersection-observer/",\
+        "packageDependencies": [\
+          ["react-intersection-observer", "npm:9.13.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:9.13.1", {\
+        "packageLocation": "./.yarn/__virtual__/react-intersection-observer-virtual-46e53e0324/5/.yarn/berry/cache/react-intersection-observer-npm-9.13.1-e97f4d95f9-10c0.zip/node_modules/react-intersection-observer/",\
+        "packageDependencies": [\
+          ["react-intersection-observer", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:9.13.1"],\
+          ["@types/react", "npm:18.3.12"],\
+          ["@types/react-dom", "npm:18.3.1"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:40e0275f62bd25a60db41e448937f91264f7f7f793840c52cd25d2469ea5e0ec1553a8aa7d21e904d187454561ff4c72dba477273f6eba9af9f210f5af925faa#npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
           "react"\
         ],\
         "linkType": "HARD"\
