@@ -17,7 +17,7 @@ const Review = () => {
       return new Promise<string[]>((resolve) => {
         setTimeout(() => {
           resolve(['너무 좋아요', '꼭 신청하세요!', '혜택 대박..!!'])
-        }, 3000)
+        }, 1500)
       })
     },
     enabled: inView,
